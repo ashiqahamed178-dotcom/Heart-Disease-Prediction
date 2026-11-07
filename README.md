@@ -1,5 +1,10 @@
 # Heart disease risk prediction
 
+[![CI](https://github.com/ashiqahamed178-dotcom/Heart-Disease-Prediction/actions/workflows/ci.yml/badge.svg)](https://github.com/ashiqahamed178-dotcom/Heart-Disease-Prediction/actions/workflows/ci.yml)
+
+**Live demo:** https://heart-disease-prediction-ru8mzqsacqmemgmamuyzrr.streamlit.app/
+(free hosting, so if it has been idle it may take about 30 seconds to wake up)
+
 An end-to-end machine learning project on the UCI Heart Disease data: a reproducible
 training pipeline, a Streamlit app that explains every prediction with SHAP, and a small
 FastAPI service. It is tested, type-checked, linted, containerised and runs in CI.
@@ -212,7 +217,8 @@ For the API instead: `docker run -p 8000:8000 heartrisk uvicorn heartrisk.api:ap
 
 ### Free hosting
 
-The app runs on [Streamlit Community Cloud](https://streamlit.io/cloud) at no cost. Point
+The [live demo](https://heart-disease-prediction-ru8mzqsacqmemgmamuyzrr.streamlit.app/) runs on
+[Streamlit Community Cloud](https://streamlit.io/cloud) at no cost. To host your own copy, point
 it at this repository with `app/streamlit_app.py` as the main file. It installs
 `requirements.txt` and uses the committed model, so no training is needed there.
 
