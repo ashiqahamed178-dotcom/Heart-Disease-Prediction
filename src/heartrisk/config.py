@@ -2,10 +2,13 @@
 
 from __future__ import annotations
 
+import os
 from pathlib import Path
 from typing import Final
 
-ROOT: Final = Path(__file__).resolve().parents[2]
+# Project root holding models/ and reports/. Defaults to the source checkout; set
+# HEARTRISK_HOME when the package is installed elsewhere (as in the Docker image).
+ROOT: Final = Path(os.environ.get("HEARTRISK_HOME") or Path(__file__).resolve().parents[2])
 DATA_DIR: Final = ROOT / "data" / "raw"
 MODELS_DIR: Final = ROOT / "models"
 REPORTS_DIR: Final = ROOT / "reports"
