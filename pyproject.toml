@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=75"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "heartrisk"
+version = "1.0.0"
+description = "Heart disease risk model on the UCI data: pipeline, Streamlit app and FastAPI endpoint"
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{ name = "Ashiq Ahamed" }]
+dependencies = [
+    "numpy",
+    "pandas",
+    "scikit-learn",
+    "xgboost",
+    "shap",
+    "matplotlib",
+    "joblib",
+    "pydantic",
+]
+
+[project.optional-dependencies]
+app = ["streamlit"]
+api = ["fastapi", "uvicorn"]
+dev = ["pytest", "pytest-cov", "ruff", "mypy", "httpx"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "SIM", "N", "S", "RUF"]
+ignore = ["S101", "N803", "N806"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+ignore_missing_imports = true
+disallow_untyped_calls = false
+warn_return_any = false
+files = ["src", "app"]
